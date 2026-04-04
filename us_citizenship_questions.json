@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "block": "FUNDAMENTOS DEL GOBIERNO",
+    "question": "¿Cuál es la ley suprema del país?",
+    "correct": "B",
+    "options": {
+      "A": "Declaración de Independencia",
+      "B": "Constitución",
+      "C": "Carta Magna",
+      "D": "Congreso"
+    }
+  },
+  {
+    "id": 2,
+    "block": "FUNDAMENTOS DEL GOBIERNO",
+    "question": "¿Qué documento es la ley suprema?",
+    "correct": "A",
+    "options": {
+      "A": "Constitución",
+      "B": "Senado",
+      "C": "Tribunal",
+      "D": "Enmienda"
+    }
+  },
+  {
+    "id": 3,
+    "block": "FUNDAMENTOS DEL GOBIERNO",
+    "question": "¿Qué hace la Constitución?",
+    "correct": "B",
+    "options": {
+      "A": "Declara guerra",
+      "B": "Establece el gobierno",
+      "C": "Cobra impuestos",
+      "D": "Elige jueces"
+    }
+  },
+  {
+    "id": 4,
+    "block": "FUNDAMENTOS DEL GOBIERNO",
+    "question": "¿Cuál es la función principal de la Constitución?",
+    "correct": "B",
+    "options": {
+      "A": "Crear leyes locales",
+      "B": "Definir estructura del gobierno",
+      "C": "Elegir presidente",
+      "D": "Controlar estados"
+    }
+  },
+  {
+    "id": 5,
+    "block": "DERECHOS Y ENMIENDAS",
+    "question": "¿Qué es una enmienda?",
+    "correct": "B",
+    "options": {
+      "A": "Ley estatal",
+      "B": "Cambio a la Constitución",
+      "C": "Orden judicial",
+      "D": "Elección"
+    }
+  },
+  {
+    "id": 6,
+    "block": "DERECHOS Y ENMIENDAS",
+    "question": "¿Qué son las primeras 10 enmiendas?",
+    "correct": "B",
+    "options": {
+      "A": "Ley federal",
+      "B": "Carta de Derechos",
+      "C": "Constitución",
+      "D": "Senado"
+    }
+  },
+  {
+    "id": 7,
+    "block": "DERECHOS Y ENMIENDAS",
+    "question": "¿Qué protege la Primera Enmienda?",
+    "correct": "B",
+    "options": {
+      "A": "Impuestos",
+      "B": "Libertades básicas",
+      "C": "Ejército",
+      "D": "Votos"
+    }
+  },
+  {
+    "id": 8,
+    "block": "DERECHOS Y ENMIENDAS",
+    "question": "¿Cuál es un derecho de la Primera Enmienda?",
+    "correct": "B",
+    "options": {
+      "A": "Viajar",
+      "B": "Libertad de expresión",
+      "C": "Trabajar",
+      "D": "Pagar impuestos"
+    }
+  },
+  {
+    "id": 9,
+    "block": "DECLARACIÓN DE INDEPENDENCIA",
+    "question": "¿Qué hizo la Declaración de Independencia?",
+    "correct": "B",
+    "options": {
+      "A": "Creó leyes",
+      "B": "Separó de Gran Bretaña",
+      "C": "Fundó estados",
+      "D": "Eligió presidente"
+    }
+  },
+  {
+    "id": 10,
+    "block": "DECLARACIÓN DE INDEPENDENCIA",
+    "question": "¿Qué derechos incluye la Declaración?",
+    "correct": "B",
+    "options": {
+      "A": "Dinero",
+      "B": "Vida y libertad",
+      "C": "Trabajo",
+      "D": "Educación"
+    }
+  },
+  {
+    "id": 11,
+    "block": "DECLARACIÓN DE INDEPENDENCIA",
+    "question": "¿Cuál derecho es mencionado?",
+    "correct": "A",
+    "options": {
+      "A": "Vida, libertad, búsqueda de felicidad",
+      "B": "Riqueza",
+      "C": "Propiedad",
+      "D": "Guerra"
+    }
+  },
+  {
+    "id": 12,
+    "block": "SISTEMA DE GOBIERNO",
+    "question": "¿Qué sistema económico tiene EE.UU.?",
+    "correct": "B",
+    "options": {
+      "A": "Comunista",
+      "B": "Capitalista",
+      "C": "Feudal",
+      "D": "Socialista"
+    }
+  },
+  {
+    "id": 13,
+    "block": "SISTEMA DE GOBIERNO",
+    "question": "¿Qué tipo de gobierno tiene EE.UU.?",
+    "correct": "B",
+    "options": {
+      "A": "Monarquía",
+      "B": "República constitucional",
+      "C": "Imperio",
+      "D": "Dictadura"
+    }
+  },
+  {
+    "id": 14,
+    "block": "SISTEMA DE GOBIERNO",
+    "question": "¿Qué significa democracia?",
+    "correct": "B",
+    "options": {
+      "A": "Gobierno del rey",
+      "B": "Gobierno del pueblo",
+      "C": "Gobierno militar",
+      "D": "Gobierno judicial"
+    }
+  },
+  {
+    "id": 15,
+    "block": "RAMAS DEL GOBIERNO",
+    "question": "¿Cuántas ramas tiene el gobierno?",
+    "correct": "B",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    }
+  },
+  {
+    "id": 16,
+    "block": "RAMAS DEL GOBIERNO",
+    "question": "¿Cuál rama hace las leyes?",
+    "correct": "C",
+    "options": {
+      "A": "Judicial",
+      "B": "Ejecutivo",
+      "C": "Legislativo",
+      "D": "Militar"
+    }
+  },
+  {
+    "id": 17,
+    "block": "RAMAS DEL GOBIERNO",
+    "question": "¿Cuál rama interpreta leyes?",
+    "correct": "B",
+    "options": {
+      "A": "Legislativo",
+      "B": "Judicial",
+      "C": "Ejecutivo",
+      "D": "Senado"
+    }
+  },
+  {
+    "id": 18,
+    "block": "RAMAS DEL GOBIERNO",
+    "question": "¿Quién ejecuta leyes?",
+    "correct": "B",
+    "options": {
+      "A": "Congreso",
+      "B": "Presidente",
+      "C": "Corte",
+      "D": "Estado"
+    }
+  },
+  {
+    "id": 19,
+    "block": "CONGRESO",
+    "question": "¿Qué es el Congreso?",
+    "correct": "B",
+    "options": {
+      "A": "Corte",
+      "B": "Poder legislativo",
+      "C": "Ejército",
+      "D": "Presidente"
+    }
+  },
+  {
+    "id": 20,
+    "block": "CONGRESO",
+    "question": "¿Cuáles son las dos partes del Congreso?",
+    "correct": "B",
+    "options": {
+      "A": "Policía y ejército",
+      "B": "Senado y Cámara de Representantes",
+      "C": "Corte y presidente",
+      "D": "Estados y ciudades"
+    }
+  },
+  {
+    "id": 21,
+    "block": "CONGRESO",
+    "question": "¿Cuántos senadores hay?",
+    "correct": "B",
+    "options": {
+      "A": "50",
+      "B": "100",
+      "C": "200",
+      "D": "435"
+    }
+  },
+  {
+    "id": 22,
+    "block": "CONGRESO",
+    "question": "¿Cuántos representantes hay?",
+    "correct": "C",
+    "options": {
+      "A": "100",
+      "B": "200",
+      "C": "435",
+      "D": "500"
+    }
+  },
+  {
+    "id": 23,
+    "block": "CONGRESO",
+    "question": "¿Por cuántos años es un senador?",
+    "correct": "C",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "6",
+      "D": "8"
+    }
+  },
+  {
+    "id": 24,
+    "block": "PRESIDENTE Y PODER EJECUTIVO",
+    "question": "¿Quién es el Comandante en Jefe?",
+    "correct": "B",
+    "options": {
+      "A": "Congreso",
+      "B": "Presidente",
+      "C": "Senado",
+      "D": "Corte"
+    }
+  },
+  {
+    "id": 25,
+    "block": "PRESIDENTE Y PODER EJECUTIVO",
+    "question": "¿Cuántos años dura el presidente?",
+    "correct": "B",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "6",
+      "D": "8"
+    }
+  },
+  {
+    "id": 26,
+    "block": "PRESIDENTE Y PODER EJECUTIVO",
+    "question": "¿Qué hace el presidente?",
+    "correct": "B",
+    "options": {
+      "A": "Hace leyes",
+      "B": "Ejecuta leyes",
+      "C": "Interpreta leyes",
+      "D": "Cobra impuestos"
+    }
+  },
+  {
+    "id": 27,
+    "block": "JUDICIAL",
+    "question": "¿Cuál es la corte más alta?",
+    "correct": "B",
+    "options": {
+      "A": "Corte estatal",
+      "B": "Corte Suprema",
+      "C": "Tribunal local",
+      "D": "Senado"
+    }
+  },
+  {
+    "id": 28,
+    "block": "JUDICIAL",
+    "question": "¿Qué hace la Corte Suprema?",
+    "correct": "B",
+    "options": {
+      "A": "Hace leyes",
+      "B": "Interpreta la Constitución",
+      "C": "Cobra impuestos",
+      "D": "Dirige ejército"
+    }
+  },
+  {
+    "id": 29,
+    "block": "CIUDADANÍA Y VOTO",
+    "question": "¿Qué hacen los ciudadanos cuando votan?",
+    "correct": "B",
+    "options": {
+      "A": "Pagan impuestos",
+      "B": "Eligen líderes",
+      "C": "Hacen leyes",
+      "D": "Dirigen el ejército"
+    }
+  },
+  {
+    "id": 30,
+    "block": "CIUDADANÍA Y VOTO",
+    "question": "¿Cuál es un requisito para votar?",
+    "correct": "A",
+    "options": {
+      "A": "Tener 18 años",
+      "B": "Tener casa",
+      "C": "Tener trabajo",
+      "D": "Tener dinero"
+    }
+  },
+  {
+    "id": 31,
+    "block": "GEOGRAFÍA Y ESTADOS",
+    "question": "¿Capital de EE.UU.?",
+    "correct": "B",
+    "options": {
+      "A": "Nueva York",
+      "B": "Washington D.C.",
+      "C": "Los Ángeles",
+      "D": "Chicago"
+    }
+  },
+  {
+    "id": 32,
+    "block": "GEOGRAFÍA Y ESTADOS",
+    "question": "¿Cuántos estados hay?",
+    "correct": "B",
+    "options": {
+      "A": "25",
+      "B": "50",
+      "C": "100",
+      "D": "75"
+    }
+  },
+  {
+    "id": 33,
+    "block": "GEOGRAFÍA Y ESTADOS",
+    "question": "¿Un estado que limita con México?",
+    "correct": "B",
+    "options": {
+      "A": "Nevada",
+      "B": "Arizona",
+      "C": "Utah",
+      "D": "Kansas"
+    }
+  },
+  {
+    "id": 34,
+    "block": "SÍMBOLOS Y CULTURA",
+    "question": "¿Qué representa la bandera?",
+    "correct": "B",
+    "options": {
+      "A": "Gobierno",
+      "B": "País y valores",
+      "C": "Presidente",
+      "D": "Ejército"
+    }
+  },
+  {
+    "id": 35,
+    "block": "SÍMBOLOS Y CULTURA",
+    "question": "¿Qué significa el Juramento a la Bandera?",
+    "correct": "B",
+    "options": {
+      "A": "Pago",
+      "B": "Lealtad a EE.UU.",
+      "C": "Elección",
+      "D": "Ley"
+    }
+  }
+]
