@@ -40,12 +40,20 @@
     <div class="quiz-container">
         <h1>Citizenship Quiz</h1>
         <button class="button" id="startButton">Start Quiz</button>
+        <button class="button" id="settingsButton">Settings</button>
         <div id="quiz" style="display:none;">
             <div id="question"></div>
+            <input type="text" id="answerInput" placeholder="Your answer">
             <button id="tTSButton">Read Question</button>
-            <button class="button" id="answerBtn">Answer</button>
+            <button class="button" id="answerBtn">Submit Answer</button>
             <div id="summary" style="display:none;"></div>
             <button class="button" id="resetBtn">Reset Quiz</button>
+        </div>
+        <div id="settings" style="display:none;">
+            <h2>Settings</h2>
+            <p>To add more questions or modify existing ones, edit the file: spanish_citizenship_questions.json</p>
+            <p>You can simplify questions by changing the text in the JSON file.</p>
+            <button class="button" id="backToQuiz">Back to Quiz</button>
         </div>
     </div>
     <script>
@@ -54,23 +62,28 @@
         let correctAnswers = 0;
         let totalAnswers = 0;
 
-        // Fetch questions from JSON (mock URL)
+        // To edit the stack of questions, modify spanish_citizenship_questions.json
+        // Add more objects with "question" and "answer" fields to pull more questions
+        // Simplify by changing the question text or answer in the JSON file
         async function fetchQuestions() {
-            const response = await fetch('path/to/spanish_citizenship_questions.json');
+            const response = await fetch('spanish_citizenship_questions.json');
             questions = await response.json();
             startQuiz();
         }
 
         function startQuiz() {
             document.getElementById('startButton').style.display = 'none';
+            document.getElementById('settingsButton').style.display = 'none';
             document.getElementById('quiz').style.display = 'block';
             showQuestion();
         }
 
         function showQuestion() {
             const questionElement = document.getElementById('question');
+            const answerInput = document.getElementById('answerInput');
             if (currentQuestionIndex < questions.length) {
                 questionElement.textContent = questions[currentQuestionIndex].question;
+                answerInput.value = '';
                 totalAnswers++;
             } else {
                 showSummary();
@@ -80,16 +93,45 @@
         function showSummary() {
             document.getElementById('quiz').style.display = 'none';
             const summary = document.getElementById('summary');
-            summary.textContent = `You answered ${correctAnswers} out of ${totalAnswers}`;
+            summary.textContent = `You answered ${correctAnswers} out of ${totalAnswers} correctly.`;
             summary.style.display = 'block';
         }
 
+        function showSettings() {
+            document.getElementById('startButton').style.display = 'none';
+            document.getElementById('quiz').style.display = 'none';
+            document.getElementById('settings').style.display = 'block';
+        }
+
+        function backToQuiz() {
+            document.getElementById('settings').style.display = 'none';
+            document.getElementById('startButton').style.display = 'inline-block';
+            document.getElementById('settingsButton').style.display = 'inline-block';
+        }
+
         document.getElementById('startButton').addEventListener('click', fetchQuestions);
+        document.getElementById('settingsButton').addEventListener('click', showSettings);
+        document.getElementById('backToQuiz').addEventListener('click', backToQuiz);
         document.getElementById('tTSButton').addEventListener('click', function() {
             const utterance = new SpeechSynthesisUtterance(questions[currentQuestionIndex].question);
             window.speechSynthesis.speak(utterance);
         });
-        document.getElementById('resetBtn').addEventListener('click', () => { currentQuestionIndex = 0; correctAnswers = 0; totalAnswers = 0; showQuestion(); });
+        document.getElementById('answerBtn').addEventListener('click', function() {
+            const answerInput = document.getElementById('answerInput');
+            if (answerInput.value.toLowerCase().trim() === questions[currentQuestionIndex].answer.toLowerCase().trim()) {
+                correctAnswers++;
+            }
+            currentQuestionIndex++;
+            showQuestion();
+        });
+        document.getElementById('resetBtn').addEventListener('click', () => { 
+            currentQuestionIndex = 0; 
+            correctAnswers = 0; 
+            totalAnswers = 0; 
+            document.getElementById('summary').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+            showQuestion(); 
+        });
     </script>
 </body>
 </html>

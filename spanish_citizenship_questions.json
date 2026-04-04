@@ -1,0 +1,22 @@
+[
+    {
+        "question": "¿Cuál es la capital de España?",
+        "answer": "Madrid"
+    },
+    {
+        "question": "¿En qué año comenzó la Guerra Civil Española?",
+        "answer": "1936"
+    },
+    {
+        "question": "¿Quién fue el primer rey de la España democrática?",
+        "answer": "Juan Carlos I"
+    },
+    {
+        "question": "¿Cuál es el río más largo de España?",
+        "answer": "Ebro"
+    },
+    {
+        "question": "¿Qué idioma oficial tiene España además del castellano?",
+        "answer": "Catalán, gallego y vasco"
+    }
+]
