@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizenship Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #ff66b2;
+        }
+        .button {
+            display: inline-block;
+            background-color: #66b3ff;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .quiz-container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Citizenship Quiz</h1>
+        <button class="button" id="startButton">Start Quiz</button>
+        <div id="quiz" style="display:none;">
+            <div id="question"></div>
+            <button id="tTSButton">Read Question</button>
+            <button class="button" id="answerBtn">Answer</button>
+            <div id="summary" style="display:none;"></div>
+            <button class="button" id="resetBtn">Reset Quiz</button>
+        </div>
+    </div>
+    <script>
+        let questions;
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let totalAnswers = 0;
+
+        // Fetch questions from JSON (mock URL)
+        async function fetchQuestions() {
+            const response = await fetch('path/to/spanish_citizenship_questions.json');
+            questions = await response.json();
+            startQuiz();
+        }
+
+        function startQuiz() {
+            document.getElementById('startButton').style.display = 'none';
+            document.getElementById('quiz').style.display = 'block';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const questionElement = document.getElementById('question');
+            if (currentQuestionIndex < questions.length) {
+                questionElement.textContent = questions[currentQuestionIndex].question;
+                totalAnswers++;
+            } else {
+                showSummary();
+            }
+        }
+
+        function showSummary() {
+            document.getElementById('quiz').style.display = 'none';
+            const summary = document.getElementById('summary');
+            summary.textContent = `You answered ${correctAnswers} out of ${totalAnswers}`;
+            summary.style.display = 'block';
+        }
+
+        document.getElementById('startButton').addEventListener('click', fetchQuestions);
+        document.getElementById('tTSButton').addEventListener('click', function() {
+            const utterance = new SpeechSynthesisUtterance(questions[currentQuestionIndex].question);
+            window.speechSynthesis.speak(utterance);
+        });
+        document.getElementById('resetBtn').addEventListener('click', () => { currentQuestionIndex = 0; correctAnswers = 0; totalAnswers = 0; showQuestion(); });
+    </script>
+</body>
+</html>
