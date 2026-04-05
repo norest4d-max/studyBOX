@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US Citizenship Quiz - Multiple Choice</title>
-    <!-- ResponsiveVoice for better Spanish TTS -->
+    <title>Examen de Civismo - Ciudadanía EE.UU.</title>
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
     <style>
         * {
@@ -28,7 +27,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             width: 100%;
-            max-width: 700px;
+            max-width: 800px;
             padding: 30px;
         }
 
@@ -45,9 +44,16 @@
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #666;
+            margin-bottom: 10px;
+        }
+
+        .info-text {
+            font-size: 0.95rem;
+            color: #999;
             margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         .button-group {
@@ -92,12 +98,38 @@
             display: none;
         }
 
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .progress-info {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95rem;
+        }
+
+        .timer-box {
+            background: #ff9800;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 80px;
+            font-size: 1.1rem;
+        }
+
         .progress-bar {
             width: 100%;
             height: 8px;
             background: #e0e0e0;
             border-radius: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             overflow: hidden;
         }
 
@@ -111,7 +143,7 @@
             text-align: center;
             font-size: 0.9rem;
             color: #999;
-            margin-top: 8px;
+            margin-bottom: 15px;
         }
 
         .block-label {
@@ -121,7 +153,7 @@
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: bold;
         }
 
@@ -132,33 +164,53 @@
         }
 
         .question-text {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #333;
             margin-bottom: 30px;
             font-weight: 600;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        .tts-button {
-            background: #ff9800;
-            color: white;
-            padding: 10px 20px;
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .tts-button, .skip-button {
+            padding: 12px 20px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-weight: bold;
-            margin-bottom: 25px;
             font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
             justify-content: center;
             transition: all 0.3s ease;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .tts-button {
+            background: #ff9800;
+            color: white;
         }
 
         .tts-button:hover {
             background: #f57c00;
             transform: scale(1.05);
+        }
+
+        .skip-button {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .skip-button:hover {
+            background: #d0d0d0;
         }
 
         .options-grid {
@@ -168,7 +220,7 @@
             margin-bottom: 25px;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             .options-grid {
                 grid-template-columns: 1fr;
             }
@@ -176,7 +228,7 @@
 
         .option-btn {
             padding: 20px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             border: 3px solid #e0e0e0;
             border-radius: 12px;
             background: white;
@@ -184,12 +236,17 @@
             font-weight: bold;
             transition: all 0.3s ease;
             color: #333;
+            text-align: left;
         }
 
-        .option-btn:hover {
+        .option-btn:hover:not(:disabled) {
             border-color: #667eea;
             background: #f5f5ff;
             transform: translateY(-2px);
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
         }
 
         .option-btn.selected {
@@ -202,41 +259,88 @@
             border-color: #4caf50;
             background: #4caf50;
             color: white;
+            animation: pulse-green 0.5s ease;
         }
 
         .option-btn.incorrect {
             border-color: #f44336;
             background: #f44336;
             color: white;
+            animation: pulse-red 0.5s ease;
         }
 
-        .feedback-message {
-            text-align: center;
-            font-size: 1.2rem;
-            font-weight: bold;
+        @keyframes pulse-green {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .feedback-section {
+            display: none;
             margin: 20px 0;
-            min-height: 30px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .feedback-section.show {
+            display: block;
         }
 
         .feedback-correct {
-            color: #4caf50;
+            background: #c8e6c9;
+            color: #2e7d32;
+            border: 2px solid #4caf50;
         }
 
         .feedback-incorrect {
-            color: #f44336;
+            background: #ffcdd2;
+            color: #c62828;
+            border: 2px solid #f44336;
         }
 
-        .next-btn {
-            width: 100%;
+        .feedback-correctAnswer {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .response-time {
+            font-size: 0.95rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .button-group-bottom {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .next-btn, .home-btn {
+            flex: 1;
             padding: 15px;
             font-size: 1.1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
             border-radius: 12px;
             cursor: pointer;
             font-weight: bold;
             display: none;
+            min-width: 150px;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .next-btn.show {
@@ -248,6 +352,19 @@
             box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
         }
 
+        .home-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .home-btn.show {
+            display: block;
+        }
+
+        .home-btn:hover {
+            background: #e0e0e0;
+        }
+
         /* RESULTS SCREEN */
         #resultsScreen {
             display: none;
@@ -255,15 +372,15 @@
         }
 
         .results-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #667eea;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: bold;
         }
 
         .score-circle {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -276,12 +393,12 @@
         }
 
         .score-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: bold;
         }
 
         .score-label {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.9;
         }
 
@@ -295,49 +412,50 @@
         .stats-row {
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
             margin: 15px 0;
-            font-size: 1.1rem;
+        }
+
+        .stats-item {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .stats-label {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
         }
 
         .stats-value {
             color: #667eea;
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
         }
 
-        .block-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 20px;
+        .result-message {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            color: #333;
+            line-height: 1.6;
         }
 
-        .block-item {
-            background: white;
-            padding: 12px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            font-size: 0.95rem;
+        .result-message.failed {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
         }
 
-        .block-item.perfect {
-            border-left-color: #4caf50;
-        }
-
-        .settings-link {
-            color: #999;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: 20px;
-            cursor: pointer;
+        .result-message.passed {
+            border-left: 4px solid #4caf50;
         }
 
         /* SETTINGS SCREEN */
         #settingsScreen {
             display: none;
-        }
-
-        .settings-content {
             color: #333;
         }
 
@@ -353,24 +471,32 @@
             padding: 15px;
             border-radius: 10px;
             margin: 15px 0;
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
         .settings-section h3 {
             color: #667eea;
             margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
-        .back-btn {
-            width: 100%;
-            padding: 12px;
-            background: #f0f0f0;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 20px;
+        .settings-section ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .settings-section li {
+            margin: 8px 0;
+        }
+
+        .settings-section pre {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            margin-top: 10px;
         }
 
         @media (max-width: 600px) {
@@ -391,17 +517,17 @@
                 font-size: 1rem;
             }
 
-            .score-circle {
-                width: 120px;
-                height: 120px;
+            .quiz-header {
+                flex-direction: column;
             }
 
-            .score-number {
-                font-size: 2rem;
+            .progress-info {
+                flex-direction: column;
+                width: 100%;
             }
 
-            .block-stats {
-                grid-template-columns: 1fr;
+            .stats-row {
+                flex-direction: column;
             }
         }
     </style>
@@ -410,179 +536,209 @@
     <div class="container">
         <!-- HOME SCREEN -->
         <div id="homeScreen">
-            <div class="logo-title">🇺🇸 Quiz</div>
-            <p class="subtitle">US Citizenship Exam Prep</p>
+            <div class="logo-title">🇺🇸 Civismo</div>
+            <p class="subtitle">Prueba de Ciudadanía de EE.UU.</p>
+            <p class="info-text">Responde 20 preguntas • Necesitas 12 correctas para aprobar<br>Se seleccionan aleatoriamente de la base de datos completa</p>
             <div class="button-group">
-                <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
-                <button class="btn btn-secondary" onclick="showSettings()">How to Edit</button>
+                <button class="btn btn-primary" onclick="startQuiz()">Comenzar Examen</button>
+                <button class="btn btn-secondary" onclick="showSettings()">Cómo Editar Preguntas</button>
             </div>
         </div>
 
         <!-- QUIZ SCREEN -->
         <div id="quizScreen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <div>Pregunta: <strong id="qProgress">1</strong>/20</div>
+                </div>
+                <div class="timer-box">⏱️ <span id="timer">0s</span></div>
+            </div>
+
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <div class="progress-text" id="progressText">Question 1 of 35</div>
+            <div class="progress-text" id="progressText">0% completado</div>
 
             <div style="text-align: center;">
-                <span class="block-label" id="blockLabel">BLOCK</span>
+                <span class="block-label" id="blockLabel">BLOQUE</span>
             </div>
 
-            <div class="question-number" id="questionNum">Q1</div>
-            <div class="question-text" id="questionText">Question text here</div>
+            <div class="question-number" id="questionNum">Pregunta 1</div>
+            <div class="question-text" id="questionText">Texto de la pregunta aquí</div>
 
-            <button class="tts-button" onclick="readQuestion()">🔊 Read Question</button>
+            <div class="controls">
+                <button class="tts-button" onclick="readQuestion()">🔊 Leer Pregunta</button>
+                <button class="skip-button" onclick="skipQuestion()">Omitir</button>
+            </div>
 
             <div class="options-grid" id="optionsGrid"></div>
 
-            <div class="feedback-message" id="feedbackMessage"></div>
-            <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next Question →</button>
+            <div class="feedback-section" id="feedbackSection">
+                <div id="feedbackText"></div>
+                <div class="feedback-correctAnswer" id="correctAnswerText"></div>
+                <div class="response-time" id="responseTime"></div>
+            </div>
+
+            <div class="button-group-bottom">
+                <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Siguiente →</button>
+                <button class="home-btn" id="homeBtn" onclick="goHome()">← Menú</button>
+            </div>
         </div>
 
         <!-- RESULTS SCREEN -->
         <div id="resultsScreen">
-            <div class="results-title">Quiz Complete!</div>
+            <div class="results-title">¡Examen Completado!</div>
             <div class="score-circle">
                 <div class="score-number" id="scoreNumber">0</div>
-                <div class="score-label">out of 35</div>
+                <div class="score-label">de 20</div>
             </div>
 
             <div class="results-stats">
                 <div class="stats-row">
-                    <div>✅ Correct</div>
-                    <div class="stats-value" id="correctCount">0</div>
+                    <div class="stats-item">
+                        <div class="stats-label">✅ Correctas</div>
+                        <div class="stats-value" id="correctCount">0</div>
+                    </div>
+                    <div class="stats-item">
+                        <div class="stats-label">❌ Incorrectas</div>
+                        <div class="stats-value" id="incorrectCount">0</div>
+                    </div>
+                    <div class="stats-item">
+                        <div class="stats-label">📊 Porcentaje</div>
+                        <div class="stats-value" id="percentageScore">0%</div>
+                    </div>
                 </div>
                 <div class="stats-row">
-                    <div>❌ Incorrect</div>
-                    <div class="stats-value" id="incorrectCount">0</div>
-                </div>
-                <div class="stats-row">
-                    <div>📊 Percentage</div>
-                    <div class="stats-value" id="percentageScore">0%</div>
+                    <div class="stats-item">
+                        <div class="stats-label">⏱️ Tiempo Total</div>
+                        <div class="stats-value" id="totalTime">0s</div>
+                    </div>
+                    <div class="stats-item">
+                        <div class="stats-label">📋 Promedio/P</div>
+                        <div class="stats-value" id="avgTime">0s</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="results-stats">
-                <strong>Performance by Block:</strong>
-                <div class="block-stats" id="blockStats"></div>
-            </div>
+            <div class="result-message" id="resultMessage"></div>
 
-            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="goHome()">Retake Quiz</button>
-            <a class="settings-link" onclick="showSettings()">Edit Questions ↗</a>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" onclick="goHome()">Intentar de Nuevo</button>
         </div>
 
         <!-- SETTINGS SCREEN -->
         <div id="settingsScreen">
-            <div class="settings-content">
-                <div class="settings-title">📝 How to Edit</div>
+            <div class="settings-title">📝 Cómo Editar & Agregar Preguntas</div>
 
-                <div class="settings-section">
-                    <h3>📂 To Add/Edit Questions:</h3>
-                    <p>Edit the file: <strong>us_citizenship_questions.json</strong></p>
-                    <p>Each question has:</p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>question:</strong> The question text</li>
-                        <li><strong>correct:</strong> Answer (A, B, C, or D)</li>
-                        <li><strong>options:</strong> The 4 choices</li>
-                        <li><strong>block:</strong> Category/topic name</li>
-                    </ul>
-                </div>
-
-                <div class="settings-section">
-                    <h3>➕ Add More Questions:</h3>
-                    <p>Copy an existing question object and modify:</p>
-                    <code style="background: #fff; padding: 10px; border-radius: 5px; display: block; overflow-x: auto;">
-{<br/>
-&nbsp;&nbsp;"id": 36,<br/>
-&nbsp;&nbsp;"block": "BLOCK NAME",<br/>
-&nbsp;&nbsp;"question": "Your question?",<br/>
-&nbsp;&nbsp;"correct": "B",<br/>
-&nbsp;&nbsp;"options": {<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"A": "Option 1",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"B": "Correct answer",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"C": "Option 3",<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;"D": "Option 4"<br/>
-&nbsp;&nbsp;}<br/>
-}
-                    </code>
-                </div>
-
-                <div class="settings-section">
-                    <h3>🎯 Tips:</h3>
-                    <ul style="margin-left: 20px;">
-                        <li>Keep questions in JSON format (proper syntax)</li>
-                        <li>Change "correct" value to match the right answer letter</li>
-                        <li>Use blocks to organize topics for tracking</li>
-                        <li>Reload page after editing to see changes</li>
-                    </ul>
-                </div>
-
-                <button class="back-btn" onclick="goHome()">← Back to Quiz</button>
+            <div class="settings-section">
+                <h3>📂 Archivo Principal:</h3>
+                <p><strong>us_civics_spanish.json</strong></p>
+                <p style="margin-top: 10px;">Este es el archivo que debe contener todas tus preguntas en español.</p>
             </div>
+
+            <div class="settings-section">
+                <h3>📋 Formato de Pregunta:</h3>
+                <pre>{
+  "id": 1,
+  "block": "GOBIERNO",
+  "question": "¿Tu pregunta?",
+  "correct": "A",
+  "options": {
+    "A": "Respuesta correcta",
+    "B": "Opción falsa 1",
+    "C": "Opción falsa 2",
+    "D": "Opción falsa 3"
+  }
+}</pre>
+            </div>
+
+            <div class="settings-section">
+                <h3>🔄 Cómo Extraer del PDF de USCIS:</h3>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Abre el PDF: 2025-Civics-Test-128-Questions-and-Answers.pdf</li>
+                    <li>Lee cada pregunta y sus respuestas correctas</li>
+                    <li>Traduce al español usando un traductor confiable (Google Translate, DeepL)</li>
+                    <li>Crea opciones falsas que parezcan cercanas pero no sean correctas</li>
+                    <li>Agrega a us_civics_spanish.json en formato JSON</li>
+                    <li>Recarga la app para ver las nuevas preguntas</li>
+                </ol>
+            </div>
+
+            <div class="settings-section">
+                <h3>⚙️ Consejos Importantes:</h3>
+                <ul>
+                    <li>"correct" DEBE ser "A", "B", "C", o "D"</li>
+                    <li>Las opciones se mezclarán automáticamente cada pregunta</li>
+                    <li>Asegúrate de JSON válido (sin comas extras o sintaxis incorrecta)</li>
+                    <li>Puedes agregar hasta 128 preguntas</li>
+                    <li>El examen selecciona 20 aleatoriamente</li>
+                    <li>Recarga (F5) la página después de editar el JSON</li>
+                </ul>
+            </div>
+
+            <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;" onclick="goHome()">← Volver al Menú</button>
         </div>
     </div>
 
     <script>
-        // AUDIO CONTEXT - Initialize for sound effects
+        // ==================== AUDIO EFFECTS ====================
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-        // Play sound effect
         function playSound(frequency, duration, type = 'sine') {
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
+            try {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
 
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
 
-            oscillator.frequency.value = frequency;
-            oscillator.type = type;
+                oscillator.frequency.value = frequency;
+                oscillator.type = type;
 
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
 
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + duration);
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + duration);
+            } catch (e) {
+                console.log('Audio not available');
+            }
         }
 
-        // Correct answer sound (ping/ding)
         function playCorrectSound() {
-            playSound(800, 0.2); // High pitch
-            setTimeout(() => playSound(1200, 0.2), 150);
+            playSound(800, 0.15);
+            setTimeout(() => playSound(1200, 0.15), 120);
         }
 
-        // Incorrect answer sound (buzzer)
         function playIncorrectSound() {
-            playSound(300, 0.3); // Low pitch buzzer
+            playSound(300, 0.3);
         }
 
         // ==================== DATA ====================
         let questions = [];
+        let selectedQuestions = [];
         let currentIndex = 0;
         let score = 0;
         let answers = [];
-        let blockScore = {};
+        let questionStartTime = 0;
+        let totalTime = 0;
+        let timerInterval;
 
         // ==================== INITIALIZATION ====================
         async function loadQuestions() {
             try {
-                const response = await fetch('us_citizenship_questions.json');
+                const response = await fetch('us_civics_spanish.json');
                 questions = await response.json();
-                initBlockScore();
             } catch (error) {
                 console.error('Error loading questions:', error);
-                alert('Error loading questions. Make sure us_citizenship_questions.json exists.');
+                console.log('Make sure us_civics_spanish.json exists');
             }
         }
 
-        function initBlockScore() {
-            blockScore = {};
-            questions.forEach(q => {
-                if (!blockScore[q.block]) {
-                    blockScore[q.block] = { correct: 0, total: 0 };
-                }
-                blockScore[q.block].total++;
-            });
+        function selectRandomQuestions() {
+            if (questions.length === 0) return;
+            const count = Math.min(20, questions.length);
+            const shuffled = [...questions].sort(() => Math.random() - 0.5);
+            selectedQuestions = shuffled.slice(0, count);
         }
 
         // ==================== SCREEN NAVIGATION ====================
@@ -598,7 +754,8 @@
             currentIndex = 0;
             score = 0;
             answers = [];
-            initBlockScore();
+            totalTime = 0;
+            if (timerInterval) clearInterval(timerInterval);
             showScreen('homeScreen');
         }
 
@@ -608,87 +765,162 @@
 
         // ==================== QUIZ LOGIC ====================
         function startQuiz() {
-            if (questions.length === 0) {
-                alert('Loading questions...');
-                loadQuestions().then(() => startQuiz());
+            selectRandomQuestions();
+            if (selectedQuestions.length === 0) {
+                alert('No hay preguntas cargadas. Asegúrate de que us_civics_spanish.json exista.');
                 return;
             }
             currentIndex = 0;
             score = 0;
             answers = [];
-            initBlockScore();
+            totalTime = 0;
             showScreen('quizScreen');
             displayQuestion();
         }
 
         function displayQuestion() {
-            const q = questions[currentIndex];
+            if (currentIndex >= selectedQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const q = selectedQuestions[currentIndex];
+            questionStartTime = Date.now();
 
             // Update progress
-            const progress = ((currentIndex) / questions.length) * 100;
+            const progress = ((currentIndex) / selectedQuestions.length) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
-            document.getElementById('progressText').textContent = `Question ${currentIndex + 1} of ${questions.length}`;
+            document.getElementById('progressText').textContent = Math.round(progress) + '% completado';
+            document.getElementById('qProgress').textContent = currentIndex + 1;
 
             // Update question
             document.getElementById('blockLabel').textContent = q.block;
-            document.getElementById('questionNum').textContent = `Q${q.id}`;
+            document.getElementById('questionNum').textContent = `Pregunta ${q.id}`;
             document.getElementById('questionText').textContent = q.question;
 
             // Clear feedback
-            document.getElementById('feedbackMessage').textContent = '';
-            document.getElementById('feedbackMessage').className = '';
+            document.getElementById('feedbackSection').classList.remove('show');
             document.getElementById('nextBtn').classList.remove('show');
+            document.getElementById('homeBtn').classList.remove('show');
 
-            // Generate options
+            // Shuffle and display options
+            const shuffledOptions = shuffleOptions(q.options, q.correct);
+
             const grid = document.getElementById('optionsGrid');
             grid.innerHTML = '';
-            ['A', 'B', 'C', 'D'].forEach(letter => {
+            Object.entries(shuffledOptions).forEach(([letter, text]) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn';
-                btn.textContent = `${letter}) ${q.options[letter]}`;
-                btn.dataset.answer = letter;
-                btn.onclick = () => selectAnswer(letter, btn);
+                btn.textContent = `${letter}) ${text}`;
+                btn.dataset.letter = letter;
+                btn.dataset.correct = q.correct;
+                btn.onclick = () => selectAnswer(letter, btn, shuffledOptions);
                 grid.appendChild(btn);
             });
+
+            // Start timer
+            updateTimerDisplay();
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimerDisplay, 100);
         }
 
-        function selectAnswer(letter, btnElement) {
-            const q = questions[currentIndex];
-            const isCorrect = letter === q.correct;
+        function shuffleOptions(options, correctAnswer) {
+            const entries = Object.entries(options);
+            const shuffled = entries.sort(() => Math.random() - 0.5);
+            const result = {};
+            ['A', 'B', 'C', 'D'].forEach((letter, i) => {
+                result[letter] = shuffled[i][1];
+            });
+            return result;
+        }
+
+        function updateTimerDisplay() {
+            const elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
+            document.getElementById('timer').textContent = elapsed + 's';
+        }
+
+        function selectAnswer(selectedLetter, btnElement, shuffledOptions) {
+            if (timerInterval) clearInterval(timerInterval);
+            
+            const q = selectedQuestions[currentIndex];
+            const responseTime = Math.floor((Date.now() - questionStartTime) / 1000);
+            totalTime += responseTime;
+
+            // Find which letter the correct answer is now at after shuffling
+            let correctLetter = '';
+            for (let [letter, text] of Object.entries(shuffledOptions)) {
+                if (text === q.options[q.correct]) {
+                    correctLetter = letter;
+                    break;
+                }
+            }
+
+            const isCorrect = selectedLetter === correctLetter;
 
             // Store answer
-            answers[currentIndex] = { selected: letter, correct: q.correct, isCorrect };
+            answers[currentIndex] = { 
+                selected: selectedLetter, 
+                correct: correctLetter, 
+                isCorrect, 
+                responseTime 
+            };
 
-            // Visual feedback
+            // Disable and highlight buttons
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.disabled = true;
-                if (btn.dataset.answer === q.correct) {
+                if (btn.textContent.includes(q.options[q.correct])) {
                     btn.classList.add('correct');
-                } else if (btn.dataset.answer === letter && !isCorrect) {
+                } else if (btn.dataset.letter === selectedLetter && !isCorrect) {
                     btn.classList.add('incorrect');
                 }
             });
 
-            // Audio & message feedback
+            // Show feedback
+            const feedbackSection = document.getElementById('feedbackSection');
+            feedbackSection.classList.add('show');
+
             if (isCorrect) {
                 playCorrectSound();
-                document.getElementById('feedbackMessage').className = 'feedback-correct';
-                document.getElementById('feedbackMessage').textContent = '✅ Correct!';
+                feedbackSection.classList.remove('feedback-incorrect');
+                feedbackSection.classList.add('feedback-correct');
+                document.getElementById('feedbackText').textContent = '✅ ¡Correcto!';
+                document.getElementById('correctAnswerText').innerHTML = '';
                 score++;
-                blockScore[q.block].correct++;
+                document.getElementById('nextBtn').classList.add('show');
+                document.getElementById('nextBtn').textContent = 'Siguiente →';
+                // Auto-advance after 1.5 seconds
+                setTimeout(() => {
+                    currentIndex++;
+                    displayQuestion();
+                }, 1500);
             } else {
                 playIncorrectSound();
-                document.getElementById('feedbackMessage').className = 'feedback-incorrect';
-                document.getElementById('feedbackMessage').textContent = `❌ Wrong! Answer: ${q.correct})`;
+                feedbackSection.classList.remove('feedback-correct');
+                feedbackSection.classList.add('feedback-incorrect');
+                document.getElementById('feedbackText').textContent = '❌ Incorrecto';
+                document.getElementById('correctAnswerText').innerHTML = 
+                    `<strong>Respuesta correcta:</strong> ${q.options[q.correct]}`;
+                document.getElementById('nextBtn').classList.add('show');
+                document.getElementById('nextBtn').textContent = 'Siguiente Pregunta';
             }
 
-            // Show next button
-            document.getElementById('nextBtn').classList.add('show');
+            document.getElementById('responseTime').textContent = `Tiempo de respuesta: ${responseTime}s`;
+            document.getElementById('homeBtn').classList.add('show');
+        }
+
+        function skipQuestion() {
+            if (timerInterval) clearInterval(timerInterval);
+            currentIndex++;
+            if (currentIndex < selectedQuestions.length) {
+                displayQuestion();
+            } else {
+                showResults();
+            }
         }
 
         function nextQuestion() {
             currentIndex++;
-            if (currentIndex < questions.length) {
+            if (currentIndex < selectedQuestions.length) {
                 displayQuestion();
             } else {
                 showResults();
@@ -697,45 +929,50 @@
 
         // ==================== RESULTS ====================
         function showResults() {
-            const percentage = Math.round((score / questions.length) * 100);
+            if (timerInterval) clearInterval(timerInterval);
+            
+            const percentage = Math.round((score / selectedQuestions.length) * 100);
+            const avgTime = selectedQuestions.length > 0 ? 
+                Math.round(totalTime / selectedQuestions.length) : 0;
 
             document.getElementById('scoreNumber').textContent = score;
             document.getElementById('correctCount').textContent = score;
-            document.getElementById('incorrectCount').textContent = questions.length - score;
+            document.getElementById('incorrectCount').textContent = 
+                selectedQuestions.length - score;
             document.getElementById('percentageScore').textContent = percentage + '%';
+            document.getElementById('totalTime').textContent = totalTime + 's';
+            document.getElementById('avgTime').textContent = avgTime + 's';
 
-            // Block stats
-            const blockStatsHtml = Object.entries(blockScore)
-                .map(([block, stats]) => {
-                    const blockPercentage = Math.round((stats.correct / stats.total) * 100);
-                    const isPerfect = stats.correct === stats.total;
-                    return `<div class="block-item ${isPerfect ? 'perfect' : ''}">
-                        <strong>${block}</strong><br/>
-                        ${stats.correct}/${stats.total} (${blockPercentage}%)
-                    </div>`;
-                })
-                .join('');
-            document.getElementById('blockStats').innerHTML = blockStatsHtml;
+            const resultMsg = document.getElementById('resultMessage');
+            let message = '';
 
+            if (score >= 12) {
+                resultMsg.className = 'result-message passed';
+                message = `<strong style="color: #2e7d32; font-size: 1.2rem;">🎉 ¡APROBASTE!</strong><br>
+                Obtuviste <strong>${score} de ${selectedQuestions.length}</strong> preguntas correctas (${percentage}%).<br>
+                ¡Felicitaciones! Estás listo para el examen de ciudadanía.`;
+            } else {
+                resultMsg.className = 'result-message failed';
+                const needed = 12 - score;
+                message = `<strong style="color: #e65100; font-size: 1.2rem;">⚠️ No Aprobaste</strong><br>
+                Obtuviste <strong>${score} de ${selectedQuestions.length}</strong> (${percentage}%).<br>
+                Necesitas <strong>${needed} respuesta${needed !== 1 ? 's' : ''} más</strong> para aprobar. ¡Sigue practicando!`;
+            }
+
+            resultMsg.innerHTML = message;
             showScreen('resultsScreen');
         }
 
         // ==================== TEXT-TO-SPEECH ====================
-        // Uses ResponsiveVoice for better Spanish pronunciation accuracy
         function readQuestion() {
-            const q = questions[currentIndex];
-            // responsiveVoice.speak(text, voice, options)
-            responsiveVoice.speak(q.question, "Spanish Female", {
-                pitch: 1,
-                rate: 0.9,
-                volume: 1,
-                onstart: function() {
-                    console.log('TTS started');
-                },
-                onend: function() {
-                    console.log('TTS finished');
-                }
-            });
+            if (currentIndex < selectedQuestions.length) {
+                const q = selectedQuestions[currentIndex];
+                responsiveVoice.speak(q.question, "Spanish Female", {
+                    pitch: 1,
+                    rate: 0.95,
+                    volume: 1
+                });
+            }
         }
 
         // ==================== STARTUP ====================

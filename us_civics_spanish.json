@@ -1,0 +1,542 @@
+[
+  {
+    "id": 1,
+    "block": "GOBIERNO",
+    "question": "¿Cuál es la ley suprema de los Estados Unidos?",
+    "correct": "A",
+    "options": {
+      "A": "La Constitución",
+      "B": "La Declaración de Independencia",
+      "C": "El Acta de Derechos",
+      "D": "El Código de Leyes Federales"
+    }
+  },
+  {
+    "id": 2,
+    "block": "GOBIERNO",
+    "question": "¿Qué establece la Constitución?",
+    "correct": "B",
+    "options": {
+      "A": "Los derechos humanos universales",
+      "B": "El marco del gobierno federal",
+      "C": "Las leyes estatales",
+      "D": "Las relaciones internacionales"
+    }
+  },
+  {
+    "id": 3,
+    "block": "DERECHOS",
+    "question": "¿De cuántas enmiendas consta la Constitución?",
+    "correct": "C",
+    "options": {
+      "A": "10 enmiendas",
+      "B": "15 enmiendas",
+      "C": "27 enmiendas",
+      "D": "33 enmiendas"
+    }
+  },
+  {
+    "id": 4,
+    "block": "DERECHOS",
+    "question": "¿Cuál es el propósito de la Declaración de Derechos?",
+    "correct": "A",
+    "options": {
+      "A": "Proteger las libertades de los ciudadanos",
+      "B": "Establecer impuestos",
+      "C": "Crear el poder ejecutivo",
+      "D": "Definir la ciudadanía"
+    }
+  },
+  {
+    "id": 5,
+    "block": "SISTEMA_POLITICO",
+    "question": "¿Cuántos poderes principales separa la Constitución?",
+    "correct": "B",
+    "options": {
+      "A": "Dos poderes",
+      "B": "Tres poderes",
+      "C": "Cuatro poderes",
+      "D": "Cinco poderes"
+    }
+  },
+  {
+    "id": 6,
+    "block": "SISTEMA_POLITICO",
+    "question": "¿Cuál es la rama ejecutiva?",
+    "correct": "C",
+    "options": {
+      "A": "El Congreso",
+      "B": "El Senado y la Cámara",
+      "C": "El Presidente y su gabinete",
+      "D": "La Corte Suprema"
+    }
+  },
+  {
+    "id": 7,
+    "block": "LEGISLATIVO",
+    "question": "¿Cuántas cámaras tiene el Congreso?",
+    "correct": "B",
+    "options": {
+      "A": "Una cámara",
+      "B": "Dos cámaras",
+      "C": "Tres cámaras",
+      "D": "Cuatro cámaras"
+    }
+  },
+  {
+    "id": 8,
+    "block": "LEGISLATIVO",
+    "question": "¿Cuáles son las dos cámaras del Congreso?",
+    "correct": "A",
+    "options": {
+      "A": "El Senado y la Cámara de Representantes",
+      "B": "El Senado y la Corte Suprema",
+      "C": "La Cámara Baja y la Corte",
+      "D": "El Congreso Federal y Estatal"
+    }
+  },
+  {
+    "id": 9,
+    "block": "CONGRESO",
+    "question": "¿Cuántos Senadores representa cada estado?",
+    "correct": "A",
+    "options": {
+      "A": "2 Senadores",
+      "B": "1 Senador",
+      "C": "3 Senadores",
+      "D": "Depende del tamaño del estado"
+    }
+  },
+  {
+    "id": 10,
+    "block": "CONGRESO",
+    "question": "¿Cuántos Senadores hay en total?",
+    "correct": "B",
+    "options": {
+      "A": "50 Senadores",
+      "B": "100 Senadores",
+      "C": "200 Senadores",
+      "D": "50 de cada categoría"
+    }
+  },
+  {
+    "id": 11,
+    "block": "CONGRESO",
+    "question": "¿Cuántos años dura el mandato de un Senador?",
+    "correct": "C",
+    "options": {
+      "A": "2 años",
+      "B": "4 años",
+      "C": "6 años",
+      "D": "8 años"
+    }
+  },
+  {
+    "id": 12,
+    "block": "CONGRESO",
+    "question": "¿Cuántos miembros hay en la Cámara de Representantes?",
+    "correct": "B",
+    "options": {
+      "A": "200 miembros",
+      "B": "435 miembros",
+      "C": "500 miembros",
+      "D": "300 miembros"
+    }
+  },
+  {
+    "id": 13,
+    "block": "PRESIDENTE",
+    "question": "¿Cuántos años dura el mandato presidencial?",
+    "correct": "A",
+    "options": {
+      "A": "4 años",
+      "B": "5 años",
+      "C": "6 años",
+      "D": "8 años"
+    }
+  },
+  {
+    "id": 14,
+    "block": "PRESIDENTE",
+    "question": "¿Cuáles son los principales poderes del Presidente?",
+    "correct": "B",
+    "options": {
+      "A": "Legislar y crear impuestos",
+      "B": "Ejecutar las leyes y servir como Comandante en Jefe",
+      "C": "Interpretar las leyes constitucionales",
+      "D": "Nombrar todos los jueces"
+    }
+  },
+  {
+    "id": 15,
+    "block": "PRESIDENTE",
+    "question": "¿Cuántas veces puede un Presidente ser reelegido?",
+    "correct": "B",
+    "options": {
+      "A": "Una sola vez",
+      "B": "Dos veces",
+      "C": "Ilimitadamente",
+      "D": "Tres veces"
+    }
+  },
+  {
+    "id": 16,
+    "block": "JUDICIAL",
+    "question": "¿Cuál es la corte más alta del país?",
+    "correct": "A",
+    "options": {
+      "A": "La Corte Suprema de los EE.UU.",
+      "B": "La Corte de Apelaciones Federal",
+      "C": "La Corte Suprema Estatal",
+      "D": "La Corte Federal Distrital"
+    }
+  },
+  {
+    "id": 17,
+    "block": "JUDICIAL",
+    "question": "¿Cuántos Jueces hay en la Corte Suprema?",
+    "correct": "B",
+    "options": {
+      "A": "7 jueces",
+      "B": "9 jueces",
+      "C": "11 jueces",
+      "D": "13 jueces"
+    }
+  },
+  {
+    "id": 18,
+    "block": "SISTEMA_POLITICO",
+    "question": "¿Cuál es el propósito del sistema de pesos y contrapesos?",
+    "correct": "C",
+    "options": {
+      "A": "Permitir que el Presidente tenga más poder",
+      "B": "Fortalecer el Senado sobre la Cámara",
+      "C": "Equilibrar el poder entre los tres poderes",
+      "D": "Centralizar toda la autoridad federal"
+    }
+  },
+  {
+    "id": 19,
+    "block": "CIUDADANIA",
+    "question": "¿A qué edad puedes votar en los EE.UU.?",
+    "correct": "B",
+    "options": {
+      "A": "16 años",
+      "B": "18 años",
+      "C": "21 años",
+      "D": "17 años"
+    }
+  },
+  {
+    "id": 20,
+    "block": "CIUDADANIA",
+    "question": "¿Cuál es un derecho fundamental de los ciudadanos?",
+    "correct": "A",
+    "options": {
+      "A": "Votar en las elecciones",
+      "B": "No pagar impuestos",
+      "C": "Vivir en otro país sin restricciones",
+      "D": "Poseer todas las propiedades del estado"
+    }
+  },
+  {
+    "id": 21,
+    "block": "DERECHOS",
+    "question": "¿Qué libertades garantiza la Primera Enmienda?",
+    "correct": "C",
+    "options": {
+      "A": "La libertad de vestirse como quieras",
+      "B": "La libertad de conducir sin licencia",
+      "C": "La libertad de religión y expresión",
+      "D": "La libertad de no trabajar"
+    }
+  },
+  {
+    "id": 22,
+    "block": "DERECHOS",
+    "question": "¿Qué protege la Segunda Enmienda?",
+    "correct": "B",
+    "options": {
+      "A": "El derecho a la educación gratuita",
+      "B": "El derecho a portar armas",
+      "C": "El derecho a la privacidad total",
+      "D": "El derecho al transporte público"
+    }
+  },
+  {
+    "id": 23,
+    "block": "GEOGRAFIA",
+    "question": "¿Cuántos estados hay en los EE.UU.?",
+    "correct": "C",
+    "options": {
+      "A": "45 estados",
+      "B": "48 estados",
+      "C": "50 estados",
+      "D": "52 estados"
+    }
+  },
+  {
+    "id": 24,
+    "block": "GEOGRAFIA",
+    "question": "¿Cuál es la capital de los EE.UU.?",
+    "correct": "A",
+    "options": {
+      "A": "Washington, D.C.",
+      "B": "Nueva York",
+      "C": "Los Ángeles",
+      "D": "Chicago"
+    }
+  },
+  {
+    "id": 25,
+    "block": "SIMBOLOS",
+    "question": "¿Cuál es el símbolo nacional de los EE.UU.?",
+    "correct": "B",
+    "options": {
+      "A": "El águila calva",
+      "B": "La bandera de estrellas y franjas",
+      "C": "La Casa Blanca",
+      "D": "El Capitolio"
+    }
+  },
+  {
+    "id": 26,
+    "block": "SIMBOLOS",
+    "question": "¿De qué colores es la bandera de los EE.UU.?",
+    "correct": "A",
+    "options": {
+      "A": "Rojo, blanco y azul",
+      "B": "Rojo, blanco y verde",
+      "C": "Azul y blanco",
+      "D": "Rojo, azul y amarillo"
+    }
+  },
+  {
+    "id": 27,
+    "block": "HISTORIA",
+    "question": "¿En qué año se independizaron los EE.UU.?",
+    "correct": "B",
+    "options": {
+      "A": "1770",
+      "B": "1776",
+      "C": "1783",
+      "D": "1789"
+    }
+  },
+  {
+    "id": 28,
+    "block": "HISTORIA",
+    "question": "¿Quién fue el primer Presidente?",
+    "correct": "C",
+    "options": {
+      "A": "Thomas Jefferson",
+      "B": "Benjamin Franklin",
+      "C": "George Washington",
+      "D": "John Adams"
+    }
+  },
+  {
+    "id": 29,
+    "block": "CONSTITUCION",
+    "question": "¿En qué año se adoptó la Constitución?",
+    "correct": "A",
+    "options": {
+      "A": "1787",
+      "B": "1776",
+      "C": "1791",
+      "D": "1789"
+    }
+  },
+  {
+    "id": 30,
+    "block": "CONSTITUCION",
+    "question": "¿Quiénes escribieron principalmente la Constitución?",
+    "correct": "B",
+    "options": {
+      "A": "Thomas Jefferson solo",
+      "B": "Los Padres Fundadores",
+      "C": "Samuel Adams y Paul Revere",
+      "D": "El Congreso Continental"
+    }
+  },
+  {
+    "id": 31,
+    "block": "GOBIERNO",
+    "question": "¿Cuál es la forma de gobierno de EE.UU.?",
+    "correct": "A",
+    "options": {
+      "A": "República democrática",
+      "B": "Monarquía constitucional",
+      "C": "Dictadura",
+      "D": "Aristocracia"
+    }
+  },
+  {
+    "id": 32,
+    "block": "LEGISLATIVO",
+    "question": "¿Quién preside el Senado?",
+    "correct": "B",
+    "options": {
+      "A": "El Presidente de los EE.UU.",
+      "B": "El Vicepresidente",
+      "C": "El Presidente de la Cámara",
+      "D": "El Senador Mayor"
+    }
+  },
+  {
+    "id": 33,
+    "block": "CONGRESO",
+    "question": "¿Cuántos años dura el mandato de un representante?",
+    "correct": "A",
+    "options": {
+      "A": "2 años",
+      "B": "4 años",
+      "C": "6 años",
+      "D": "3 años"
+    }
+  },
+  {
+    "id": 34,
+    "block": "DERECHOS",
+    "question": "¿Qué protege la Quinta Enmienda?",
+    "correct": "C",
+    "options": {
+      "A": "El derecho a portar armas",
+      "B": "La libertad de expresión",
+      "C": "Los derechos procesales y contra la autoincriminación",
+      "D": "El derecho a la privacidad"
+    }
+  },
+  {
+    "id": 35,
+    "block": "DERECHOS",
+    "question": "¿Qué establece la Decimocuarta Enmienda?",
+    "correct": "B",
+    "options": {
+      "A": "El derecho a votar sin discriminación",
+      "B": "La igualdad de protección bajo la ley",
+      "C": "La abolición de la esclavitud",
+      "D": "La prohibición del alcohol"
+    }
+  },
+  {
+    "id": 36,
+    "block": "ELECCIONES",
+    "question": "¿Cuándo se celebran las elecciones presidenciales en EE.UU.?",
+    "correct": "A",
+    "options": {
+      "A": "Cada 4 años, en noviembre",
+      "B": "Cada 2 años",
+      "C": "Cada año",
+      "D": "Cada 3 años"
+    }
+  },
+  {
+    "id": 37,
+    "block": "SISTEMA_POLITICO",
+    "question": "¿Cuál es la edad mínima para ser Presidente?",
+    "correct": "B",
+    "options": {
+      "A": "30 años",
+      "B": "35 años",
+      "C": "40 años",
+      "D": "25 años"
+    }
+  },
+  {
+    "id": 38,
+    "block": "LEGISLATIVO",
+    "question": "¿Qué poder tiene el veto?",
+    "correct": "C",
+    "options": {
+      "A": "El Senado",
+      "B": "La Cámara de Representantes",
+      "C": "El Presidente",
+      "D": "La Corte Suprema"
+    }
+  },
+  {
+    "id": 39,
+    "block": "DERECHOS",
+    "question": "¿Cuántos años de duración tiene un mandato de Juez de la Corte Suprema?",
+    "correct": "A",
+    "options": {
+      "A": "De por vida",
+      "B": "10 años",
+      "C": "6 años",
+      "D": "8 años"
+    }
+  },
+  {
+    "id": 40,
+    "block": "CIUDADANIA",
+    "question": "¿Cuál es un deber de los ciudadanos?",
+    "correct": "B",
+    "options": {
+      "A": "Servir en el ejército obligatoriamente",
+      "B": "Pagar impuestos",
+      "C": "Trabajar en el gobierno",
+      "D": "Vivir en la capital"
+    }
+  },
+  {
+    "id": 41,
+    "block": "GEOGRAFIA",
+    "question": "¿Qué océanos rodean a los EE.UU. continentales?",
+    "correct": "A",
+    "options": {
+      "A": "Océano Atlántico y Pacífico",
+      "B": "Océano Atlántico e Índico",
+      "C": "Océano Pacífico y Ártico",
+      "D": "Solo el Océano Pacífico"
+    }
+  },
+  {
+    "id": 42,
+    "block": "HISTORIA",
+    "question": "¿Cuál fue la contribución principal de la Declaración de Independencia?",
+    "correct": "B",
+    "options": {
+      "A": "Establecer el sistema de gobierno",
+      "B": "Declarar la independencia de Gran Bretaña",
+      "C": "Abolir la esclavitud",
+      "D": "Crear el Congreso"
+    }
+  },
+  {
+    "id": 43,
+    "block": "DERECHOS",
+    "question": "¿Qué garantiza la Décima Enmienda?",
+    "correct": "C",
+    "options": {
+      "A": "El derecho a una educación",
+      "B": "El derecho al trabajo",
+      "C": "Los poderes no delegados van a los estados y al pueblo",
+      "D": "El derecho a la vivienda"
+    }
+  },
+  {
+    "id": 44,
+    "block": "GOBIERNO",
+    "question": "¿Cuál es la responsabilidad principal del Congreso?",
+    "correct": "A",
+    "options": {
+      "A": "Hacer las leyes",
+      "B": "Ejecutar las leyes",
+      "C": "Interpretar las leyes",
+      "D": "Administrar los estados"
+    }
+  },
+  {
+    "id": 45,
+    "block": "ELECCIONES",
+    "question": "¿Quién puede votar en los EE.UU.?",
+    "correct": "B",
+    "options": {
+      "A": "Solo los hombres de 21 años",
+      "B": "Los ciudadanos de 18 años o más",
+      "C": "Solo los propietarios de tierras",
+      "D": "Todos los residentes permanentes"
+    }
+  }
+]
