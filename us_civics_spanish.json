@@ -549,11 +549,11 @@
         "id":  43,
         "block":  "SIMBOLOS",
         "question":  "¿Cuántas barras tiene la bandera de los EE.UU.?",
-        "correct":  "C",
+        "correct":  "B",
         "options":  {
                         "A":  "50 barras",
                         "B":  "13 barras",
-                        "C":  "13 barras",
+                        "C":  "20 barras",
                         "D":  "7 barras"
                     },
         "uniqueTag":  "SIMBOLOS-003"
