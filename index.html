@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>US Citizenship Quiz - Multiple Choice</title>
+    <!-- ResponsiveVoice for better Spanish TTS -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
     <style>
         * {
             margin: 0;
@@ -719,13 +721,21 @@
         }
 
         // ==================== TEXT-TO-SPEECH ====================
+        // Uses ResponsiveVoice for better Spanish pronunciation accuracy
         function readQuestion() {
             const q = questions[currentIndex];
-            const utterance = new SpeechSynthesisUtterance(q.question);
-            utterance.lang = 'es-ES';
-            utterance.rate = 0.9;
-            window.speechSynthesis.cancel();
-            window.speechSynthesis.speak(utterance);
+            // responsiveVoice.speak(text, voice, options)
+            responsiveVoice.speak(q.question, "Spanish Female", {
+                pitch: 1,
+                rate: 0.9,
+                volume: 1,
+                onstart: function() {
+                    console.log('TTS started');
+                },
+                onend: function() {
+                    console.log('TTS finished');
+                }
+            });
         }
 
         // ==================== STARTUP ====================
