@@ -538,7 +538,7 @@
         <div id="homeScreen">
             <div class="logo-title">🇺🇸 Civismo</div>
             <p class="subtitle">Prueba de Ciudadanía de EE.UU.</p>
-            <p class="info-text">Responde 20 preguntas • Necesitas 12 correctas para aprobar<br>Se seleccionan aleatoriamente de la base de datos completa</p>
+            <p class="info-text">Responde todas las preguntas de civismo • Necesitas 60% correctas para aprobar<br>Se seleccionan aleatoriamente de la base de datos completa</p>
             <div class="button-group">
                 <button class="btn btn-primary" onclick="startQuiz()">Comenzar Examen</button>
                 <button class="btn btn-secondary" onclick="showSettings()">Cómo Editar Preguntas</button>
@@ -549,7 +549,7 @@
         <div id="quizScreen">
             <div class="quiz-header">
                 <div class="progress-info">
-                    <div>Pregunta: <strong id="qProgress">1</strong>/20</div>
+                    <div>Pregunta: <strong id="qProgress">1</strong>/<span id="totalQuestions">86</span></div>
                 </div>
                 <div class="timer-box">⏱️ <span id="timer">0s</span></div>
             </div>
@@ -736,9 +736,10 @@
 
         function selectRandomQuestions() {
             if (questions.length === 0) return;
-            const count = Math.min(20, questions.length);
+            const count = questions.length;
             const shuffled = [...questions].sort(() => Math.random() - 0.5);
             selectedQuestions = shuffled.slice(0, count);
+            document.getElementById('totalQuestions').textContent = count;
         }
 
         // ==================== SCREEN NAVIGATION ====================
@@ -945,18 +946,20 @@
 
             const resultMsg = document.getElementById('resultMessage');
             let message = '';
+            const passingPercentage = 60;
+            const passingScore = Math.ceil(selectedQuestions.length * (passingPercentage / 100));
 
-            if (score >= 12) {
+            if (score >= passingScore) {
                 resultMsg.className = 'result-message passed';
                 message = `<strong style="color: #2e7d32; font-size: 1.2rem;">🎉 ¡APROBASTE!</strong><br>
                 Obtuviste <strong>${score} de ${selectedQuestions.length}</strong> preguntas correctas (${percentage}%).<br>
                 ¡Felicitaciones! Estás listo para el examen de ciudadanía.`;
             } else {
                 resultMsg.className = 'result-message failed';
-                const needed = 12 - score;
+                const needed = passingScore - score;
                 message = `<strong style="color: #e65100; font-size: 1.2rem;">⚠️ No Aprobaste</strong><br>
                 Obtuviste <strong>${score} de ${selectedQuestions.length}</strong> (${percentage}%).<br>
-                Necesitas <strong>${needed} respuesta${needed !== 1 ? 's' : ''} más</strong> para aprobar. ¡Sigue practicando!`;
+                Necesitas <strong>${needed} respuesta${needed !== 1 ? 's' : ''} más</strong> (${passingPercentage}%) para aprobar. ¡Sigue practicando!`;
             }
 
             resultMsg.innerHTML = message;
